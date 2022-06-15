@@ -1,0 +1,8 @@
+body  {
+  margin:0;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('font/Early\ GameBoy.ttf') format('embedded-opentype')
+}
