@@ -24,16 +24,21 @@ const Tetris = () => {
         
     console.log('re-render');
 
+    //where dir comes from?
     const movePlayer = dir => {
+        //why not?
         if(!checkCollision(player, stage, {x:dir, y:0})) {
         updatePlayerPos({x:dir, y:0});
         }
     };
 
+
     const keyUp = ({keyCode}) => {
         if(!gameOver) {
+            //if u press:
             if(keyCode === 40) {
                 //activate the interval
+                //minos start dropping acc to lvl
                 setDropTime(1000/ (level+1));
             }
         }
@@ -51,8 +56,9 @@ const Tetris = () => {
     };
 
     const drop = () => {
-        //increase lvl when player cleared 10 rowsCleared
+        //increase lvl when player cleared 10 rows
         if(rows > (level +1) * 10) {
+            //set lvl higher
             setLevel(prev => prev +1 );
             //increase speed
             setDropTime(1000/ (level +1) + 200);
