@@ -18,11 +18,10 @@ const Tetris = () => {
     
     const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
     const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
-    const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(
-        rowsCleared
-        );
+    const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
         
     console.log('re-render');
+    console.log(score)
 
     //where dir comes from?
     const movePlayer = dir => {
@@ -71,7 +70,7 @@ const Tetris = () => {
             if(player.pos.y < 1) {
                 console.log("GAME OVER");
                 setGameOver(true);
-                setDropTime(null);   
+                setDropTime(null);  
              }
         updatePlayerPos({x: 0, y:0, collided:true});
     }};
